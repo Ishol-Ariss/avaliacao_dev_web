@@ -11,19 +11,19 @@ datasource db {
 }
 
 model Dono{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nome String
   cpf String @unique
   email String @unique
   pets Pet[]
-  @@map("usuarios")
+  @@map("dono")
 }
 
 model Pet{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nome String
   raca String
-  data_nasc DateTime
-  id_dono Int
+  data_nasc String
+  id_dono String
   dono Dono @relation(fields: [id_dono], references: [id])
 }
