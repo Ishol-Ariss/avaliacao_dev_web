@@ -22,7 +22,7 @@ export class PetService {
         return pet
     }
 
-    async getByCpf(id: string) {
+    async getById(id: string) {
         const pet = await this.prisma.pet.findUnique({
             where: {
                 id
@@ -38,7 +38,7 @@ export class PetService {
     }
     
 
-    async deleteByCpf(cpf: string) {
+    async deleteById(cpf: string) {
         const pet = await this.prisma.dono.delete({
             where: {
                 cpf

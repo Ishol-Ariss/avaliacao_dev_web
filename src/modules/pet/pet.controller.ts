@@ -10,20 +10,20 @@ export class PetController {
     async create(@Body() data: PetDto) {
       return this.petService.create(data)
     }
-    @Get('one/:cpf')
-    async get(@Param('cpf') cpf: string){
-      return this.petService.getByCpf(cpf)
+    @Get('one/:id')
+    async get(@Param('id') id: string){
+      return this.petService.getById(id)
     }
     @Get('all')
     async getAll(){
       return this.petService.getAll()
     }
-    @Delete(':cpf')
-    async delete(@Param('cpf') cpf: string){
-      return this.petService.deleteByCpf(cpf)
+    @Delete(':id')
+    async delete(@Param('id') id: string){
+      return this.petService.deleteById(id)
     }
-    @Put(':cpf')
-    async update(@Param('cpf') cpf: string, @Body() data: PetDto) {
-      return this.petService.update(cpf, data)
+    @Put(':id')
+    async update(@Param('id') id: string, @Body() data: PetDto) {
+      return this.petService.update(id, data)
     }
 }
