@@ -38,10 +38,10 @@ export class PetService {
     }
     
 
-    async deleteById(cpf: string) {
-        const pet = await this.prisma.dono.delete({
+    async deleteById(id: string) {
+        const pet = await this.prisma.pet.delete({
             where: {
-                cpf
+                id
             }
         })
         return pet
